@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Softonic KR - 안전한 무료 다운로드</title>
+    <style>
+        body { font-family: sans-serif; margin: 0; background: #f4f7f9; color: #333; }
+        header { background: #004a99; color: white; padding: 15px 10%; display: flex; align-items: center; }
+        .container { max-width: 1000px; margin: 30px auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .app-header { display: flex; align-items: center; border-bottom: 2px solid #eee; padding-bottom: 20px; }
+        .app-icon { width: 100px; height: 100px; background: #ddd; border-radius: 20px; margin-right: 20px; }
+        .download-btn { background: #28a745; color: white; padding: 20px 40px; font-size: 24px; border: none; border-radius: 5px; cursor: pointer; width: 100%; font-weight: bold; transition: 0.3s; }
+        .download-btn:hover { background: #218838; }
+        .info-table { width: 100%; margin-top: 20px; border-collapse: collapse; }
+        .info-table td { padding: 10px; border-bottom: 1px solid #eee; }
+        #loading-section { display: none; text-align: center; margin-top: 20px; }
+        .progress-bar { width: 100%; background: #eee; height: 20px; border-radius: 10px; overflow: hidden; }
+        .progress-fill { width: 0%; height: 100%; background: #007bff; transition: 0.1s; }
+    </style>
+</head>
+<body>
+    <header><h1>Softonic</h1></header>
+    <div class="container">
+        <div class="app-header">
+            <div class="app-icon"><img src="https://via.placeholder.com/100" alt="icon"></div>
+            <div>
+                <h2>인기 유료 앱/게임 이름 (최신 버전)</h2>
+                <p style="color: #28a745;">✓ 검증됨 - 바이러스 없음</p>
+            </div>
+        </div>
+        
+        <table class="info-table">
+            <tr><td>라이선스:</td><td>무료 (Free)</td></tr>
+            <tr><td>운영체제:</td><td>Windows, Android, iOS</td></tr>
+            <tr><td>언어:</td><td>한국어 외 15개</td></tr>
+        </table>
+
+        <div style="margin-top: 30px;">
+            <button class="download-btn" onclick="startDownload()">무료 다운로드 시작</button>
+        </div>
+
+        <div id="loading-section">
+            <p id="status-text">서버 연결 중...</p>
+            <div class="progress-bar"><div id="fill" class="progress-fill"></div></div>
+        </div>
+    </div>
+
+    <script>
+        function startDownload() {
+            document.getElementById('loading-section').style.display = 'block';
+            let fill = document.getElementById('fill');
+            let status = document.getElementById('status-text');
+            let width = 0;
+            
+            // 팝업 광고 띄우기 (여기에 광고 주소 넣기)
+            window.open('https://www.google.com', '_blank'); // 테스트용
+
+            let interval = setInterval(() => {
+                if (width >= 100) {
+                    clearInterval(interval);
+                    status.innerText = "검사 완료! 공식 서버로 이동합니다.";
+                    setTimeout(() => {
+                        // 실제 앱 사이트로 리다이렉트
+                        location.href = "https://www.apple.com/kr/app-store/"; 
+                    }, 1500);
+                } else {
+                    width++;
+                    fill.style.width = width + '%';
+                    if(width == 30) status.innerText = "보안 검사 중...";
+                    if(width == 70) status.innerText = "패치 파일 확인 중...";
+                }
+            }, 50);
+        }
+    </script>
+</body>
+</html>

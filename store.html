@@ -3,55 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PENGUIN STORE - Apps & Games MOD</title>
+    <title>PENGUIN STORE - Game Hack & Premium Apps</title>
+    <meta name="description" content="로블록스 핵, 브롤스타즈 버그판, 마인크래프트 무료 다운로드 및 프리미엄 앱 MOD 제공.">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700;900&family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        :root { --primary: #007bff; --dark: #121212; --success: #28a745; --bg: #f8f9fa; --hack: #ff4757; }
+        :root { --primary: #007bff; --dark: #121212; --success: #28a745; --hack: #ff4757; --bg: #f8f9fa; }
         body { font-family: 'Roboto', 'Noto Sans KR', sans-serif; margin: 0; background: var(--bg); color: #333; }
-        
         header { background: #fff; padding: 15px 10%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; position: sticky; top:0; z-index:100; }
         .logo { font-size: 20px; font-weight: 900; color: var(--dark); text-transform: uppercase; text-decoration: none; }
         .logo span { color: var(--primary); font-weight: 300; }
         .nav-links { font-size: 13px; font-weight: 700; color: #666; display: flex; gap: 25px; }
         .nav-links a { text-decoration: none; color: inherit; }
-        .nav-links a:hover { color: var(--primary); }
-
-        .container { max-width: 1100px; margin: 30px auto; padding: 0 20px; }
-        .ad-slot { width: 100%; display: flex; justify-content: center; margin: 25px 0; overflow: hidden; }
-
-        /* 섹션 타이틀 */
-        .section-header { font-size: 13px; font-weight: 900; color: #bbb; text-transform: uppercase; margin: 50px 0 20px; border-bottom: 1px solid #eee; padding-bottom: 10px; display: flex; justify-content: space-between; }
-        .section-header span { color: var(--dark); }
-
-        /* 앱 카드 그리드 */
-        .app-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 25px; }
-        .app-card { background: #fff; border-radius: 12px; padding: 24px; transition: 0.25s; border: 1px solid #eee; cursor: pointer; position: relative; overflow: hidden; }
-        .app-card:hover { transform: translateY(-5px); box-shadow: 0 12px 30px rgba(0,0,0,0.06); border-color: #ddd; }
-        
-        .verified-label { position: absolute; top: 0; right: 0; background: var(--success); color: white; font-size: 10px; font-weight: 900; padding: 4px 12px; border-bottom-left-radius: 12px; }
-
-        .app-top { display: flex; gap: 18px; align-items: center; margin-bottom: 20px; }
-        .app-top img { width: 60px; height: 60px; border-radius: 14px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-        .app-title-area h3 { margin: 0; font-size: 18px; font-weight: 700; color: var(--dark); }
-        .app-ver { font-size: 11px; color: #aaa; margin-top: 3px; }
-        
-        .mod-desc { font-size: 12px; color: #666; background: #f9f9f9; padding: 10px; border-radius: 8px; margin-bottom: 20px; line-height: 1.5; border-left: 3px solid var(--primary); }
-        .mod-desc.hack { border-left-color: var(--hack); color: var(--hack); font-weight: 700; }
-
-        .btn-get { background: var(--dark); color: white; text-align: center; padding: 12px; border-radius: 6px; font-weight: 700; font-size: 13px; transition: 0.2s; }
-        .btn-get:hover { opacity: 0.9; }
-
-        /* 모달 디자인 */
+        .container { max-width: 1000px; margin: 30px auto; padding: 0 20px; }
+        .ad-slot { width: 100%; display: flex; justify-content: center; margin: 25px 0; }
+        .section-header { font-size: 13px; font-weight: 900; color: #bbb; text-transform: uppercase; margin: 40px 0 15px; border-bottom: 1px solid #eee; padding-bottom: 8px; }
+        .app-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
+        .app-card { background: #fff; border-radius: 12px; padding: 20px; border: 1px solid #eee; cursor: pointer; transition: 0.2s; position: relative; }
+        .app-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .verified { position: absolute; top: 0; right: 0; background: var(--success); color: white; font-size: 10px; font-weight: 900; padding: 4px 10px; border-bottom-left-radius: 10px; }
+        .app-top { display: flex; gap: 15px; align-items: center; margin-bottom: 15px; }
+        .app-top img { width: 55px; height: 55px; border-radius: 12px; }
+        .app-title { font-weight: 700; font-size: 17px; }
+        .mod-desc { font-size: 12px; color: #777; background: #f9f9f9; padding: 10px; border-radius: 8px; border-left: 3px solid var(--hack); }
+        .btn-get { background: var(--dark); color: white; text-align: center; padding: 12px; border-radius: 6px; font-weight: 700; font-size: 13px; margin-top: 15px; }
         #download-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); justify-content: center; align-items: center; z-index: 10000; }
-        .modal-body { background: #fff; padding: 40px; border-radius: 16px; width: 90%; max-width: 360px; text-align: center; }
-        .progress-container { width: 100%; background: #f0f0f0; height: 6px; border-radius: 3px; overflow: hidden; margin-top: 25px; }
+        .modal-body { background: #fff; padding: 40px; border-radius: 16px; width: 90%; max-width: 350px; text-align: center; }
+        .progress-container { width: 100%; background: #f0f0f0; height: 6px; border-radius: 3px; overflow: hidden; margin-top: 20px; }
         .progress-fill { width: 0%; height: 100%; background: var(--dark); transition: 0.1s; }
-
-        footer { background: #fff; color: #999; padding: 60px 10%; margin-top: 100px; text-align: left; font-size: 11px; border-top: 1px solid #eee; }
+        footer { background: #fff; padding: 60px 10%; font-size: 12px; color: #999; border-top: 1px solid #eee; margin-top: 80px; }
     </style>
 </head>
 <body>
-
 <header>
     <a href="index.html" class="logo">PENGUIN<span>STORE</span></a>
     <div class="nav-links">
@@ -59,7 +41,6 @@
         <a href="store.html" style="color:var(--primary)">Apps & Games</a>
     </div>
 </header>
-
 <div class="container">
     <div class="ad-slot">
         <script type="text/javascript">
@@ -67,100 +48,45 @@
         </script>
         <script type="text/javascript" src="https://www.highperformanceformat.com/0fb8fb434f2da3b173620c96931b27b7/invoke.js"></script>
     </div>
-
-    <div class="section-header"><span>Game Modifications</span> Updated: Today</div>
+    <div class="section-header">Verified Game Hacks</div>
     <div class="app-grid">
         <div class="app-card" onclick="openModal('Roblox Mod Menu')">
-            <div class="verified-label">ANTI-BAN</div>
+            <div class="verified">ANTI-BAN</div>
             <div class="app-top">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Roblox_player_icon_black.svg">
-                <div class="app-title-area"><h3>Roblox Hack</h3><div class="app-ver">v2.608 (Latest)</div></div>
+                <div class="app-title">Roblox Hack</div>
             </div>
-            <div class="mod-desc hack">Menu: Fly, Wallhack, Teleport, Auto-farm Scripts.</div>
-            <div class="btn-get">GET APK / EXE</div>
-        </div>
-
-        <div class="app-card" onclick="openModal('Brawl Stars Nulls')">
-            <div class="verified-label">FREE GEMS</div>
-            <div class="app-top">
-                <img src="https://upload.wikimedia.org/wikipedia/en/b/b1/Brawl_Stars_logo.png">
-                <div class="app-title-area"><h3>Brawl Stars MOD</h3><div class="app-ver">Private Server v54.243</div></div>
-            </div>
-            <div class="mod-desc hack">Unlimited Gems, Gold, and All Brawlers Unlocked.</div>
-            <div class="btn-get">DOWNLOAD MOD</div>
-        </div>
-    </div>
-
-    <div class="ad-slot">
-        <script async="async" data-cfasync="false" src="https://pl28670403.effectivegatecpm.com/eeb80f57c8e0dd2eee3e5678df8ef435/invoke.js"></script>
-        <div id="container-eeb80f57c8e0dd2eee3e5678df8ef435"></div>
-    </div>
-
-    <div class="section-header"><span>Premium Apps</span> Unlocked</div>
-    <div class="app-grid">
-        <div class="app-card" onclick="openModal('Minecraft Full')">
-            <div class="verified-label">FULL VERSION</div>
-            <div class="app-top">
-                <img src="https://upload.wikimedia.org/wikipedia/en/5/51/Minecraft_cover.png">
-                <div class="app-title-area"><h3>Minecraft PE</h3><div class="app-ver">Official Build v1.20</div></div>
-            </div>
-            <div class="mod-desc">Paid version for free. Xbox Live login working.</div>
-            <div class="btn-get">GET FULL VERSION</div>
-        </div>
-
-        <div class="app-card" onclick="openModal('Netflix Premium')">
-            <div class="verified-label">PREMIUM</div>
-            <div class="app-top">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg">
-                <div class="app-title-area"><h3>Netflix Mod</h3><div class="app-ver">Premium Unlocked</div></div>
-            </div>
-            <div class="mod-desc">No Ads, 4K Quality Unlocked, Multiple Screens.</div>
-            <div class="btn-get">DOWNLOAD NOW</div>
+            <div class="mod-desc">Fly, Wallhack, Auto-farm scripts included.</div>
+            <div class="btn-get">GET APK</div>
         </div>
     </div>
 </div>
-
 <footer>
     <div class="footer-logo">PENGUIN STORE</div>
-    <p>Penguin Store provides the most reliable software modifications. Our team verifies every build to ensure your account safety.</p>
-    <p>© 2026 PENGUIN STORE GLOBAL. Powered by verified distributors.</p>
+    <p>PENGUIN STORE는 <strong>로블록스 핵</strong>, <strong>브롤스타즈 버그판</strong> 등 검증된 게임 모드를 공유합니다.</p>
+    <p>© 2026 PENGUIN STORE GLOBAL.</p>
 </footer>
-
 <div id="download-modal">
     <div class="modal-body">
         <h2 id="m-title">Requesting...</h2>
         <div id="loader" style="display:none;">
             <div class="progress-container"><div class="progress-fill" id="fill"></div></div>
-            <p id="l-status" style="font-size:11px; font-weight:700; margin-top:10px; color:#999; text-transform:uppercase;">Searching for Link...</p>
+            <p style="font-size:11px; margin-top:10px; color:#999;">링크 생성 중...</p>
         </div>
         <button id="dl-btn" onclick="runLoader()" style="background:var(--dark); color:white; border:none; padding:15px; width:100%; border-radius:6px; font-weight:700; margin-top:20px; cursor:pointer;">START DOWNLOAD</button>
     </div>
 </div>
-
 <script>
-    function openModal(name) {
-        document.getElementById('download-modal').style.display = 'flex';
-        document.getElementById('m-title').innerText = name;
-    }
+    function openModal(name) { document.getElementById('download-modal').style.display = 'flex'; document.getElementById('m-title').innerText = name; }
     function runLoader() {
         document.getElementById('dl-btn').style.display = 'none';
         document.getElementById('loader').style.display = 'block';
-        let fill = document.getElementById('fill'), status = document.getElementById('l-status'), w = 0;
+        let fill = document.getElementById('fill'), w = 0;
         let itv = setInterval(() => {
-            if (w >= 100) {
-                clearInterval(itv);
-                location.href = "https://www.effectivegatecpm.com/p00qj5qd0k?key=cd7b4673866800948b201659235e684a";
-            } else {
-                w++; fill.style.width = w + '%';
-                if(w == 40) status.innerText = "Bypassing Security...";
-                if(w == 80) status.innerText = "Finalizing Package...";
-            }
+            if (w >= 100) { clearInterval(itv); location.href = "https://www.effectivegatecpm.com/p00qj5qd0k?key=cd7b4673866800948b201659235e684a"; }
+            else { w++; fill.style.width = w + '%'; }
         }, 40);
     }
 </script>
-
-<script src="https://pl28670144.effectivegatecpm.com/f9/d4/a6/f9d4a6a210468499454370873e39acaa.js"></script>
-<script src="https://pl28670376.effectivegatecpm.com/9d/38/46/9d38468d758be6bd15c3e92945de3ee0.js"></script>
-
 </body>
 </html>

@@ -3,77 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Softonic KR - 안전한 무료 다운로드</title>
+    <title>Softonic KR - 프리미엄 앱 & 게임 모드 센터</title>
     <style>
-        body { font-family: sans-serif; margin: 0; background: #f4f7f9; color: #333; }
-        header { background: #004a99; color: white; padding: 15px 10%; display: flex; align-items: center; }
-        .container { max-width: 1000px; margin: 30px auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        .app-header { display: flex; align-items: center; border-bottom: 2px solid #eee; padding-bottom: 20px; }
-        .app-icon { width: 100px; height: 100px; background: #ddd; border-radius: 20px; margin-right: 20px; }
-        .download-btn { background: #28a745; color: white; padding: 20px 40px; font-size: 24px; border: none; border-radius: 5px; cursor: pointer; width: 100%; font-weight: bold; transition: 0.3s; }
-        .download-btn:hover { background: #218838; }
-        .info-table { width: 100%; margin-top: 20px; border-collapse: collapse; }
-        .info-table td { padding: 10px; border-bottom: 1px solid #eee; }
-        #loading-section { display: none; text-align: center; margin-top: 20px; }
-        .progress-bar { width: 100%; background: #eee; height: 20px; border-radius: 10px; overflow: hidden; }
-        .progress-fill { width: 0%; height: 100%; background: #007bff; transition: 0.1s; }
+        body { font-family: 'Malgun Gothic', sans-serif; margin: 0; background: #f4f6f8; color: #333; }
+        header { background: #004a99; color: white; padding: 10px 8%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
+        .nav-links { display: flex; gap: 15px; font-size: 13px; font-weight: bold; }
+        
+        .container { max-width: 1200px; margin: 20px auto; padding: 0 20px; }
+        .section-title { font-size: 22px; font-weight: bold; margin: 40px 0 15px; border-left: 6px solid #e74c3c; padding-left: 15px; color: #333; }
+        .blue-title { border-left-color: #004a99; }
+
+        /* 광고 영역 스타일 */
+        .ad-slot { background: #fff; margin: 20px 0; padding: 10px; border: 1px dashed #ccc; text-align: center; border-radius: 8px; }
+
+        /* 앱 그리드 */
+        .app-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+        .app-card { background: white; border-radius: 12px; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); cursor: pointer; transition: 0.3s; border: 1px solid #eee; position: relative; overflow: hidden; }
+        .app-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .app-top { display: flex; align-items: center; margin-bottom: 15px; }
+        .app-top img { width: 60px; height: 60px; border-radius: 12px; margin-right: 15px; }
+        .app-info h3 { margin: 0; font-size: 17px; color: #004a99; }
+        .tag-hot { position: absolute; top: 0; right: 0; background: #e74c3c; color: white; font-size: 11px; padding: 5px 10px; border-bottom-left-radius: 10px; font-weight: bold; }
+        .app-desc { font-size: 13px; color: #666; height: 55px; margin-bottom: 15px; }
+        .btn-dl { background: #004a99; color: white; text-align: center; padding: 10px; border-radius: 5px; font-weight: bold; }
+
+        footer { background: #2c3e50; color: #bdc3c7; padding: 40px 8%; margin-top: 50px; font-size: 12px; }
     </style>
 </head>
 <body>
-    <header><h1>Softonic</h1></header>
-    <div class="container">
-        <div class="app-header">
-            <div class="app-icon"><img src="https://via.placeholder.com/100" alt="icon"></div>
-            <div>
-                <h2>인기 유료 앱/게임 이름 (최신 버전)</h2>
-                <p style="color: #28a745;">✓ 검증됨 - 바이러스 없음</p>
+
+<header>
+    <div style="font-size: 22px; font-weight: bold;">Softonic Premium</div>
+    <div class="nav-links">
+        <span>윈도우</span><span>안드로이드</span><span>아이폰</span><span>MOD버전</span>
+    </div>
+</header>
+
+<div class="container">
+    <div class="ad-slot">
+        <p style="color:#aaa">PREMIUM ADVERTISEMENT</p>
+    </div>
+
+    <div class="section-title">최신 게임 MOD (버그판/핵)</div>
+    <div class="app-grid">
+        <div class="app-card" onclick="openModal('브롤스타즈 버그판 V54.1', 'https://upload.wikimedia.org/wikipedia/en/b/b1/Brawl_Stars_logo.png')">
+            <span class="tag-hot">MOD APK</span>
+            <div class="app-top">
+                <img src="https://upload.wikimedia.org/wikipedia/en/b/b1/Brawl_Stars_logo.png" alt="bs">
+                <div class="app-info"><h3>Brawl Stars MOD</h3><p>무한 보석/골드 패치</p></div>
             </div>
-        </div>
-        
-        <table class="info-table">
-            <tr><td>라이선스:</td><td>무료 (Free)</td></tr>
-            <tr><td>운영체제:</td><td>Windows, Android, iOS</td></tr>
-            <tr><td>언어:</td><td>한국어 외 15개</td></tr>
-        </table>
-
-        <div style="margin-top: 30px;">
-            <button class="download-btn" onclick="startDownload()">무료 다운로드 시작</button>
+            <p class="app-desc">모든 스킨 해금 및 무제한 재화가 적용된 버그판입니다. 안드로이드 전용 설치 파일(APK)을 제공합니다.</p>
+            <div class="btn-dl" style="background: #e74c3c;">버그판 다운로드</div>
         </div>
 
-        <div id="loading-section">
-            <p id="status-text">서버 연결 중...</p>
-            <div class="progress-bar"><div id="fill" class="progress-fill"></div></div>
+        <div class="app-card" onclick="openModal('로블록스 핵 메뉴 2024', 'https://upload.wikimedia.org/wikipedia/commons/3/3a/Roblox_player_icon_black.svg')">
+            <span class="tag-hot">HACK MENU</span>
+            <div class="app-top">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Roblox_player_icon_black.svg" alt="rbx">
+                <div class="app-info"><h3>Roblox Hack Menu</h3><p>월핵/스피드핵/비행</p></div>
+            </div>
+            <p class="app-desc">감지되지 않는 최신 로블록스 핵 메뉴입니다. 모바일 및 PC 버전 모두 호환되며 정지 방지 스크립트가 내장되어 있습니다.</p>
+            <div class="btn-dl" style="background: #e74c3c;">핵 버전 다운로드</div>
         </div>
     </div>
 
-    <script>
-        function startDownload() {
-            document.getElementById('loading-section').style.display = 'block';
-            let fill = document.getElementById('fill');
-            let status = document.getElementById('status-text');
-            let width = 0;
-            
-            // 팝업 광고 띄우기 (여기에 광고 주소 넣기)
-            window.open('https://www.google.com', '_blank'); // 테스트용
+    <div class="ad-slot">
+        <p style="color:#aaa">RECOMMENDED FOR YOU</p>
+    </div>
 
-            let interval = setInterval(() => {
-                if (width >= 100) {
-                    clearInterval(interval);
-                    status.innerText = "검사 완료! 공식 서버로 이동합니다.";
-                    setTimeout(() => {
-                        // 실제 앱 사이트로 리다이렉트
-                        location.href = "https://www.apple.com/kr/app-store/"; 
-                    }, 1500);
-                } else {
-                    width++;
-                    fill.style.width = width + '%';
-                    if(width == 30) status.innerText = "보안 검사 중...";
-                    if(width == 70) status.innerText = "패치 파일 확인 중...";
-                }
-            }, 50);
-        }
-    </script>
+    <div class="section-title blue-title">무료 계정 & 충전 센터</div>
+    <div class="app-grid">
+        <div class="app-card" onclick="openModal('무료 Robux 생성기', 'https://upload.wikimedia.org/wikipedia/commons/c/ce/Roblox_Logo.svg')">
+            <div class="app-top">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Roblox_player_icon_black.svg" alt="rbx">
+                <div class="app-info"><h3>무료 로벅스 충전</h3><p>이벤트 진행 중</p></div>
+            </div>
+            <p class="app-desc">공식 API 연동을 통해 본인의 계정에 안전하게 로벅스를 생성합니다. 하루 선착순 100명 한정.</p>
+            <div class="btn-dl">무료 충전 시작</div>
+        </div>
+        </div>
+</div>
 
-  <script src="https://pl28670144.effectivegatecpm.com/f9/d4/a6/f9d4a6a210468499454370873e39acaa.js"></script>
+<footer>
+    <div style="display:flex; justify-content:space-between;">
+        <div>
+            <h3>Softonic International</h3>
+            <p>© 1997-2026 All Rights Reserved.</p>
+            <p>본사: Barcelona, Spain | 연락처: legal@softonic.com</p>
+        </div>
+        <div style="text-align:right;">
+            <p>Terms of Service</p>
+            <p>Privacy Policy</p>
+            <p>DMCA Policy</p>
+        </div>
+    </div>
+</footer>
+
+<div id="download-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); justify-content:center; align-items:center; z-index:9999;">
+    <div style="background:white; padding:30px; border-radius:15px; width:90%; max-width:400px; text-align:center;">
+        <img id="modal-icon" src="" style="width:70px; border-radius:12px;">
+        <h2 id="modal-title">앱 이름</h2>
+        <button id="start-btn" onclick="startProcess()" style="background:#004a99; color:white; border:none; padding:15px; width:100%; border-radius:8px; font-weight:bold; cursor:pointer; font-size:18px;">데이터 요청 시작</button>
+        <div id="loading-area" style="display:none; margin-top:20px;">
+            <p id="status-text">연결 중...</p>
+            <div style="width:100%; background:#eee; height:12px; border-radius:10px; overflow:hidden;"><div id="fill" style="width:0%; height:100%; background:#e74c3c; transition:0.1s;"></div></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function openModal(name, icon) {
+        document.getElementById('download-modal').style.display = 'flex';
+        document.getElementById('modal-title').innerText = name;
+        document.getElementById('modal-icon').src = icon;
+    }
+
+    function startProcess() {
+        document.getElementById('start-btn').style.display = 'none';
+        document.getElementById('loading-area').style.display = 'block';
+        let fill = document.getElementById('fill');
+        let status = document.getElementById('status-text');
+        let width = 0;
+        let interval = setInterval(() => {
+            if (width >= 100) {
+                clearInterval(interval);
+                status.innerText = "완료! 광고 확인 후 즉시 지급됩니다.";
+                setTimeout(() => {
+                    // ★중요: 여기에 Adsterra의 [Direct Link] 주소를 넣으세요!
+                    location.href = "여기에_Direct_Link_주소를_넣으세요";
+                }, 1500);
+            } else {
+                width++;
+                fill.style.width = width + '%';
+                if(width == 40) status.innerText = "바이러스 보안 검사 중...";
+                if(width == 80) status.innerText = "데이터 팩 생성 중...";
+            }
+        }, 50);
+    }
+</script>
+
 </body>
 </html>
